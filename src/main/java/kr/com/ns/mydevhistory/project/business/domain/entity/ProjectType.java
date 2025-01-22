@@ -1,13 +1,15 @@
-package kr.com.ns.mydevhistory.project.business.entity;
+package kr.com.ns.mydevhistory.project.business.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Getter
-@Table
+@Entity
+@Table(name = "project_type")
 @NoArgsConstructor
-@Entity(name = "project_type")
 public class ProjectType {
 
     @Id
@@ -16,4 +18,7 @@ public class ProjectType {
 
     @Column(name = "name")
     private String name;
+
+//    @ManyToMany(mappedBy = "projectTypes")
+//    private List<Project> projects;
 }

@@ -1,13 +1,13 @@
-package kr.com.ns.mydevhistory.project.business.entity;
+package kr.com.ns.mydevhistory.project.business.domain.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Table
+@Table(name = "tech")
+@Entity
 @NoArgsConstructor
-@Entity(name = "tech")
 public class Tech {
 
     @Id

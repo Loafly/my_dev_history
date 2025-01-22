@@ -1,4 +1,4 @@
-package kr.com.ns.mydevhistory.project.business.entity;
+package kr.com.ns.mydevhistory.project.business.domain.entity;
 
 
 import jakarta.persistence.*;
@@ -6,9 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Table
+@Entity
+@Table(name = "project_project_type")
 @NoArgsConstructor
-@Entity(name = "project_project_type")
 public class ProjectProjectType {
 
     @Id
