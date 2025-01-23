@@ -3,12 +3,9 @@ package kr.com.ns.mydevhistory.project.business.domain.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Getter
@@ -36,9 +33,6 @@ public class Project {
     @Column(name = "thumbnail_url")
     private String thumbnailUrl;
 
-//    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
-//    private List<ProjectProjectType> projectProjectTypes = new ArrayList<>();
-
     @ManyToMany
     @JoinTable(
             name = "project_project_type",
@@ -46,10 +40,6 @@ public class Project {
             inverseJoinColumns = @JoinColumn(name = "project_type_id")
     )
     private Set<ProjectType> projectTypes = new HashSet<>();
-
-
-//    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
-//    private Set<ProjectTech> projectTechs = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
