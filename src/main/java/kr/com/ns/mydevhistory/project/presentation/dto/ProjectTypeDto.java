@@ -1,12 +1,11 @@
 package kr.com.ns.mydevhistory.project.presentation.dto;
 
-import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectType;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-public record ProjectTypeDto(Short id, String name) {
-    public ProjectTypeDto(ProjectType projectType) {
-        this(
-                projectType.getId(),
-                projectType.getName()
-        );
-    }
+@Getter
+@NoArgsConstructor
+public class ProjectTypeDto {
+    private Short id;
+    private String name;
 }

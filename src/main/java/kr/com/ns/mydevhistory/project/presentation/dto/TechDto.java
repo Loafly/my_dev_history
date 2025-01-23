@@ -1,12 +1,11 @@
 package kr.com.ns.mydevhistory.project.presentation.dto;
 
-import kr.com.ns.mydevhistory.project.business.domain.entity.Tech;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-public record TechDto(Short id, String name) {
-    public TechDto(Tech tech) {
-        this(
-                tech.getId(),
-                tech.getName()
-        );
-    }
+@Getter
+@NoArgsConstructor
+public class TechDto {
+    private Short id;
+    private String name;
 }

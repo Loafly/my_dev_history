@@ -1,34 +1,25 @@
 package kr.com.ns.mydevhistory.project.presentation.dto;
 
-import kr.com.ns.mydevhistory.project.business.domain.entity.Project;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class ProjectDto {
 
-    public record SearchResponse(long id,
-                                 long userId,
-                                 String name,
-                                 LocalDate startDate,
-                                 LocalDate endDate,
-                                 String thumbnailUrl,
-                                 List<ProjectTypeDto> projectTypes,
-                                 List<TechDto> techs
-    ) {
-
-         public SearchResponse(Project project) {
-            this(
-                    project.getId(),
-                    project.getUserId(),
-                    project.getName(),
-                    project.getStartDate(),
-                    project.getEndDate(),
-                    project.getThumbnailUrl(),
-                    project.getProjectTypes().stream().map(ProjectTypeDto::new).toList(),
-                    project.getTechs().stream().map(TechDto::new).toList()
-            );
-        }
+    @Getter
+    @NoArgsConstructor
+    public static class SearchResponse {
+        private long id;
+        private long userId;
+        private String name;
+        private String description;
+        private LocalDate startDate;
+        private LocalDate endDate;
+        private String thumbnailUrl;
+        private List<ProjectTypeDto> projectTypes;
+        private List<TechDto> techs;
     }
 
     public record SearchRequest(Long userId,
