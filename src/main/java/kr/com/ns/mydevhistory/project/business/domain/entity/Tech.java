@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@Table(name = "tech")
 @Entity
+@Table(name = "tech")
 @NoArgsConstructor
 public class Tech {
 
