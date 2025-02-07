@@ -1,5 +1,8 @@
 package kr.com.ns.mydevhistory.project.presentation.dto;
 
+import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectImage;
+import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectPerformance;
+import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectTaskHistory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -39,5 +42,9 @@ public class ProjectDto {
         private long personnel;
         private List<ProjectTypeDto> projectTypes;
         private List<TechDto> techs;
+        private List<ProjectImage> projectImages;
+        private List<ProjectTaskHistory> projectTaskHistories;
+        private List<ProjectPerformance> projectPerformances;
+
     }
 }

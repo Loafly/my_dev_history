@@ -30,6 +30,6 @@ public class ProjectRepositoryImpl implements ProjectRepository {
 
     @Override
     public Optional<Project> findById(Long id) {
-        return projectJpaRepository.findById(id);
+        return projectJpaRepository.findFetchById(id);
     }
 }

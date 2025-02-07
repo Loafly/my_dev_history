@@ -3,7 +3,6 @@ package kr.com.ns.mydevhistory.project.business.domain.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CollectionId;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
@@ -35,14 +34,14 @@ public class Project {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "thumbnail_url", columnDefinition = "TEXT")
+    @Column(name = "thumbnail_url", columnDefinition = "text")
     private String thumbnailUrl;
 
     @ColumnDefault("0")
     @Column(name = "personnel", nullable = false)
     private short personnel;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "project_project_type",
             joinColumns = @JoinColumn(name = "project_id"),
@@ -50,7 +49,7 @@ public class Project {
     )
     private Set<ProjectType> projectTypes = new HashSet<>();
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "project_tech",
             joinColumns = @JoinColumn(name = "project_id"),
@@ -58,5 +57,12 @@ public class Project {
     )
     private Set<Tech> techs = new HashSet<>();
 
+    @OneToMany(mappedBy = "projectId", fetch = FetchType.LAZY)
+    private Set<ProjectImage> projectImages = new HashSet<>();
 
+    @OneToMany(mappedBy = "projectId", fetch = FetchType.LAZY)
+    private Set<ProjectTaskHistory> projectTaskHistories = new HashSet<>();
+
+    @OneToMany(mappedBy = "projectId", fetch = FetchType.LAZY)
+    private Set<ProjectPerformance> projectPerformances = new HashSet<>();
 }
