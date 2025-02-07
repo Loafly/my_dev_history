@@ -23,7 +23,7 @@ public class User {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "profile_url")
+    @Column(name = "profile_url", columnDefinition = "TEXT")
     private String profileUrl;
 
 }

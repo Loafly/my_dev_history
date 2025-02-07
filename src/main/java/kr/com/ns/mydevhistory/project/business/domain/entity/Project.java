@@ -33,7 +33,7 @@ public class Project {
     @Column(name = "end_date")
     private LocalDate endDate;
 
-    @Column(name = "thumbnail_url")
+    @Column(name = "thumbnail_url", columnDefinition = "TEXT")
     private String thumbnailUrl;
 
     @ManyToMany
