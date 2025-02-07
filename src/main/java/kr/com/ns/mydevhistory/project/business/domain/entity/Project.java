@@ -65,4 +65,7 @@ public class Project {
 
     @OneToMany(mappedBy = "projectId", fetch = FetchType.LAZY)
     private Set<ProjectPerformance> projectPerformances = new HashSet<>();
+
+    @OneToMany(mappedBy = "projectId", fetch = FetchType.LAZY)
+    private Set<ProjectTroubleshooting> projectTroubleshootings = new HashSet<>();
 }

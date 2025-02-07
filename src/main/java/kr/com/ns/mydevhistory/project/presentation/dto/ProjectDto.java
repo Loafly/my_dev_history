@@ -42,9 +42,10 @@ public class ProjectDto {
         private long personnel;
         private List<ProjectTypeDto> projectTypes;
         private List<TechDto> techs;
-        private List<ProjectImage> projectImages;
-        private List<ProjectTaskHistory> projectTaskHistories;
-        private List<ProjectPerformance> projectPerformances;
+        private List<ProjectImageDto> projectImages;
+        private List<ProjectTaskHistoryDto> projectTaskHistories;
+        private List<ProjectPerformanceDto> projectPerformances;
+        private List<ProjectTroubleshootingDto> projectTroubleshootings;
 
     }
 }
