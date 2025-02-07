@@ -21,5 +21,10 @@ public class ProjectFacade {
         return projectService.search(searchRequest, pageable);
     }
 
+    // 프로젝트 단건 조회
+    @Transactional(readOnly = true)
+    public Project getById(Long id) {
+        return projectService.getById(id);
+    }
 
 }

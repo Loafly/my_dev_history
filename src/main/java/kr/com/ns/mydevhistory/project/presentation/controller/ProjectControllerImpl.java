@@ -1,15 +1,14 @@
 package kr.com.ns.mydevhistory.project.presentation.controller;
 
 import kr.com.ns.mydevhistory.project.business.application.facade.ProjectFacade;
+import kr.com.ns.mydevhistory.project.business.domain.entity.Project;
 import kr.com.ns.mydevhistory.project.presentation.dto.ProjectDto;
-import kr.com.ns.mydevhistory.project.presentation.mapper.ProjectMapper;
+import kr.com.ns.mydevhistory.project.presentation.mapper.ProjectDetailResponseMapper;
+import kr.com.ns.mydevhistory.project.presentation.mapper.ProjectSearchResponseMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/projects")
 @RestController
@@ -17,7 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProjectControllerImpl implements ProjectControllerDoc {
 
     private final ProjectFacade projectFacade;
-    private final ProjectMapper projectMapper;
+    private final ProjectSearchResponseMapper projectSearchResponseMapper;
+    private final ProjectDetailResponseMapper projectDetailResponseMapper;
 
     @Override
     @GetMapping("/search")
@@ -25,6 +25,15 @@ public class ProjectControllerImpl implements ProjectControllerDoc {
                                                   Pageable pageable) {
 
         return projectFacade.search(searchRequest, pageable)
-                .map(projectMapper::toSearchResponseDto);
+                .map(projectSearchResponseMapper::toSearchResponseDto);
     }
+
+    @Override
+    @GetMapping("/{projectId}")
+    public ProjectDto.DetailResponse detail(@PathVariable(name = "projectId") Long id) {
+
+        return projectDetailResponseMapper.toDto(projectFacade.getById(id));
+    }
+
+
 }

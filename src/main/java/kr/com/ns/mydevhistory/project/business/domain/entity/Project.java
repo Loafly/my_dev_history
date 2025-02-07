@@ -3,6 +3,8 @@ package kr.com.ns.mydevhistory.project.business.domain.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -18,7 +20,7 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
+    @Column(name = "user_id", nullable = false)
     private Long userId;
 
     @Column(name = "name")
@@ -35,6 +37,10 @@ public class Project {
 
     @Column(name = "thumbnail_url", columnDefinition = "TEXT")
     private String thumbnailUrl;
+
+    @ColumnDefault("0")
+    @Column(name = "personnel", nullable = false)
+    private short personnel;
 
     @ManyToMany
     @JoinTable(

@@ -7,9 +7,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProjectMapper extends BaseMapper<Project, ProjectDto.SearchResponse> {
+public class ProjectSearchResponseMapper extends BaseMapper<Project, ProjectDto.SearchResponse> {
 
-    protected ProjectMapper(ModelMapper modelMapper) {
+    protected ProjectSearchResponseMapper(ModelMapper modelMapper) {
         super(modelMapper, Project.class, ProjectDto.SearchResponse.class);
     }
 

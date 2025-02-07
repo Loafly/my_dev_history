@@ -25,4 +25,19 @@ public class ProjectDto {
     public record SearchRequest(Long userId,
                                 String projectTypeName,
                                 String techName) { }
+
+    @Getter
+    @NoArgsConstructor
+    public static class DetailResponse {
+        private long id;
+        private long userId;
+        private String name;
+        private String description;
+        private LocalDate startDate;
+        private LocalDate endDate;
+        private String thumbnailUrl;
+        private long personnel;
+        private List<ProjectTypeDto> projectTypes;
+        private List<TechDto> techs;
+    }
 }
