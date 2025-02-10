@@ -10,6 +10,11 @@ import org.springframework.stereotype.Component;
 public class UserMapper extends BaseMapper<User, UserDto> {
 
     protected UserMapper(ModelMapper modelMapper) {
-        super(modelMapper, User.class, UserDto.class);
+        super(modelMapper, User.class);
+        this.registerDtoMapping(UserDto.class);
+    }
+
+    public UserDto toDto(User user) {
+        return super.toDto(user, UserDto.class);
     }
 }

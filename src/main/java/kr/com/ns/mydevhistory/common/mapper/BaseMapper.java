@@ -2,22 +2,30 @@ package kr.com.ns.mydevhistory.common.mapper;
 
 import org.modelmapper.ModelMapper;
 
+import java.util.*;
+
 public abstract class BaseMapper<E, D> {
     private final ModelMapper modelMapper;
     private final Class<E> entityClass;
-    private final Class<D> dtoClass;
+    private final Map<Class<?>, List<Class<?>>> dtoMappings = new HashMap<>();
 
-    protected BaseMapper(ModelMapper mm, Class<E> eClass, Class<D> dClass) {
-        this.modelMapper = mm;
-        this.entityClass = eClass;
-        this.dtoClass = dClass;
+    protected BaseMapper(ModelMapper modelMapper, Class<E> entityClass) {
+        this.modelMapper = modelMapper;
+        this.entityClass = entityClass;
     }
 
-    public D toDto(E entity) {
+    protected <D> void registerDtoMapping(Class<D> dtoClass) {
+        dtoMappings.computeIfAbsent(entityClass, k -> new ArrayList<>()).add(dtoClass);
+    }
+
+    protected <D> D toDto(E entity, Class<D> dtoClass) {
+        if (!dtoMappings.getOrDefault(entityClass, Collections.emptyList()).contains(dtoClass)) {
+            throw new IllegalStateException("등록되지 않은 DTO 클래스입니다.");
+        }
         return (entity == null) ? null : modelMapper.map(entity, dtoClass);
     }
 
-    public E toEntity(D domain) {
-        return (domain == null) ? null : modelMapper.map(domain, entityClass);
+    protected  <D> E toEntity(D dto) {
+        return (dto == null) ? null : modelMapper.map(dto, entityClass);
     }
 }
