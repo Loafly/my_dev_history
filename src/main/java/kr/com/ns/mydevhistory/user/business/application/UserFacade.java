@@ -17,4 +17,9 @@ public class UserFacade {
         return userService.getById(id);
     }
 
+    @Transactional(readOnly = true)
+    public User getDetailById(Long id) {
+        return userService.getDetailById(id);
+    }
+
 }

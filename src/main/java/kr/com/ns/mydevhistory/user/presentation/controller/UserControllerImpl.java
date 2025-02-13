@@ -22,4 +22,10 @@ public class UserControllerImpl implements UserControllerDoc {
     public UserDto getById(@PathVariable Long userId) {
         return userMapper.toDto(userFacade.getById(userId));
     }
+
+    @Override
+    @GetMapping("/{userId}/detail")
+    public UserDto.DetailResponse getDetailById(@PathVariable Long userId) {
+        return userMapper.toDetailDto(userFacade.getDetailById(userId));
+    }
 }

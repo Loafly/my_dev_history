@@ -1,8 +1,5 @@
 package kr.com.ns.mydevhistory.project.presentation.dto;
 
-import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectImage;
-import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectPerformance;
-import kr.com.ns.mydevhistory.project.business.domain.entity.ProjectTaskHistory;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

@@ -12,9 +12,14 @@ public class UserMapper extends BaseMapper<User, UserDto> {
     protected UserMapper(ModelMapper modelMapper) {
         super(modelMapper, User.class);
         this.registerDtoMapping(UserDto.class);
+        this.registerDtoMapping(UserDto.DetailResponse.class);
     }
 
     public UserDto toDto(User user) {
         return super.toDto(user, UserDto.class);
+    }
+
+    public UserDto.DetailResponse toDetailDto(User user) {
+        return super.toDto(user, UserDto.DetailResponse.class);
     }
 }

@@ -9,4 +9,5 @@ public interface UserControllerDoc {
 
     UserDto getById(@ParameterObject Long userId);
 
+    UserDto.DetailResponse getDetailById(@ParameterObject Long userId);
 }

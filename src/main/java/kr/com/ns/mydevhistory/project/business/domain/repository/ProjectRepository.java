@@ -11,5 +11,5 @@ public interface ProjectRepository {
 
     Page<Project> search(ProjectDto.SearchRequest searchRequest, Pageable pageable);
 
-    Optional<Project> findById(Long id);
+    Optional<Project> findFetchById(Long id);
 }

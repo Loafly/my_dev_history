@@ -29,7 +29,7 @@ public class ProjectRepositoryImpl implements ProjectRepository {
     }
 
     @Override
-    public Optional<Project> findById(Long id) {
+    public Optional<Project> findFetchById(Long id) {
         return projectJpaRepository.findFetchById(id);
     }
 }

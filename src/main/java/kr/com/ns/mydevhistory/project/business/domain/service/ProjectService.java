@@ -21,7 +21,7 @@ public class ProjectService {
     }
 
     public Project getById(Long id) {
-        return projectRepository.findById(id).orElseThrow(
+        return projectRepository.findFetchById(id).orElseThrow(
                 () -> new ApiException(ErrorCode.PROJECT_NOT_FOUND)
         );
     }

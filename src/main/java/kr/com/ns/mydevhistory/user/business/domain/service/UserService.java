@@ -16,4 +16,8 @@ public class UserService {
     public User getById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new ApiException(ErrorCode.USER_NOT_FOUND));
     }
+
+    public User getDetailById(Long id) {
+        return userRepository.findFetchById(id).orElseThrow(() -> new ApiException(ErrorCode.USER_NOT_FOUND));
+    }
 }

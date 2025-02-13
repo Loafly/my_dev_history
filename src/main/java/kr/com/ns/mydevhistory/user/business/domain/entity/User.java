@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Table
 @NoArgsConstructor
@@ -26,4 +29,12 @@ public class User {
     @Column(name = "profile_url", columnDefinition = "TEXT")
     private String profileUrl;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserActivity> userActivities = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserCareer> userCareers = new HashSet<>();
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private Set<UserCertificate> userCertificates = new HashSet<>();
 }
