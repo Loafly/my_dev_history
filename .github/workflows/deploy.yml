@@ -30,6 +30,9 @@ jobs:
       - name: 빌드된 파일 이름 변경
         run: mv ./build/libs/*SNAPSHOT.jar ./project.jar
 
+      - name: 디버그 로그 추가
+        run: ls -al ./build/libs/
+
       - name: SCP로 EC2에 빌드된 파일 전송
         uses: appleboy/scp-action@v0.1.7
         with:
