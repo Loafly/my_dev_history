@@ -48,8 +48,8 @@ jobs:
           key: ${{ secrets.EC2_PRIVATE_KEY }}
           script_stop: true
           script: |
-            rm -rf /home/ubuntu/my-dev-history
-            mkdir -p /home/ubuntu/my-dev-history
+#            rm -rf /home/ubuntu/my-dev-history
+#            mkdir -p /home/ubuntu/my-dev-history
             mv /home/ubuntu/my-dev-history/tobe/project.jar /home/ubuntu/my-dev-history/project.jar
             cd /home/ubuntu/my-dev-history
             sudo fuser -k -n tcp 8080 || true
