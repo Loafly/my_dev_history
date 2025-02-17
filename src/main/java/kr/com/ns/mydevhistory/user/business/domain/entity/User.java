@@ -26,7 +26,7 @@ public class User {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "profile_url", columnDefinition = "TEXT")
+    @Column(name = "profile_url", columnDefinition = "text")
     private String profileUrl;
 
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
