@@ -41,9 +41,8 @@ class UserServiceTest {
             User user = new User();
             ReflectionTestUtils.setField(user, "id", userId);
 
-            when(userRepository.findById(userId)).thenReturn(Optional.of(user));
-
             // when
+            when(userRepository.findById(userId)).thenReturn(Optional.of(user));
             User resultUser = userService.getById(userId);
 
             // then
@@ -59,9 +58,8 @@ class UserServiceTest {
             User user = new User();
             ReflectionTestUtils.setField(user, "id", userId);
 
-            when(userRepository.findById(userId)).thenReturn(Optional.empty());
-
             // when
+            when(userRepository.findById(userId)).thenReturn(Optional.empty());
             ApiException apiException = assertThrows(ApiException.class, () -> userService.getById(userId));
 
             // then
@@ -81,9 +79,8 @@ class UserServiceTest {
             User user = new User();
             ReflectionTestUtils.setField(user, "id", userId);
 
-            when(userRepository.findFetchById(userId)).thenReturn(Optional.of(user));
-
             // when
+            when(userRepository.findFetchById(userId)).thenReturn(Optional.of(user));
             User resultUser = userService.getDetailById(userId);
 
             // then
@@ -99,9 +96,8 @@ class UserServiceTest {
             User user = new User();
             ReflectionTestUtils.setField(user, "id", userId);
 
-            when(userRepository.findFetchById(userId)).thenReturn(Optional.empty());
-
             // when
+            when(userRepository.findFetchById(userId)).thenReturn(Optional.empty());
             ApiException apiException = assertThrows(ApiException.class, () -> userService.getDetailById(userId));
 
             // then
