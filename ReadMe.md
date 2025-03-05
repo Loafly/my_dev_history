@@ -23,4 +23,5 @@
 - **툴**: GitActions
 - **워크플로우 파일**: `.github/workflows/deploy.yml`
   - **동작 방식**
+
   ![_CI_CD drawio](https://github.com/user-attachments/assets/b243cd7e-a561-4150-b227-782409badab7)
